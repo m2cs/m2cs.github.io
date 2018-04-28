@@ -1,9 +1,4 @@
-; 
-
 $(document).ready(function(){
-
-	"use strict";
-
 	/*=============================
 	Start Mobile Detect
 	=============================*/
@@ -74,7 +69,7 @@ $(document).ready(function(){
 			ratio       = 10;
 
 		for (var i = 20; i >= 1; i--) {
-			
+
 			$('.' + classPrefix + i ).removeClass(classPrefix + i );
 		}
 	};
@@ -107,11 +102,11 @@ $(document).ready(function(){
 
 		var setting = {
 			counter: {
-				lastDate: targetDate, // target date settings, 
+				lastDate: targetDate, // target date settings,
 				timeZone: null
 			}
 		};
-		
+
 	};
 
 	countdown_timer();
@@ -133,8 +128,7 @@ $(document).ready(function(){
 		}
 
 		$('.desktop .only-page-link').on('click', function(e){
-			//event.preventDefault(event);
-			event.stopPropagation(e);
+			// event.preventDefault(event);
 			var href = $(this).attr('href');
 			$(href + " .el-scroll-holder").mCustomScrollbar("scrollTo", '0px', {scrollInertia:800});
 			$('.fullscreen-section').addClass('out-fullscreen-section');
@@ -144,8 +138,8 @@ $(document).ready(function(){
 		});
 
 		$('.mobile .only-page-link').on('click', function(e){
-			//event.preventDefault(event);
-			event.stopPropagation(e);
+			event.preventDefault(event);
+			// event.stopPropagation(e);
 			var href = $(this).attr('href');
 			$(href + " .el-scroll-holder").scrollTo('0px', 800);
 			$('.fullscreen-section').addClass('out-fullscreen-section');
@@ -259,7 +253,7 @@ $(document).ready(function(){
 					return element.find('img');
 				}
 			}
-			
+
 		});
 	};
 
@@ -333,17 +327,17 @@ $(document).ready(function(){
 					data    : data,
 					success : function(status){
 						form.find('[type=submit]').removeAttr('disabled').text('Send Message');
-						
+
 						var status = $.parseJSON(status);
 
 						if(status.name_status == '0'          ||
-							status.email_status == '0'        || 
-							status.message_status == '0'      || 
+							status.email_status == '0'        ||
+							status.message_status == '0'      ||
 							status.connect_status == '0'      ||
-							status.company_name_status == '0' || 
+							status.company_name_status == '0' ||
 						 	status.phone_number_status == '0'){
 
-							
+
 							if(status.name_status == '0'){
 								form.find('.name-item').addClass('error');
 								form.find('.name-item + .error-title').html(status.name_insert);
@@ -376,7 +370,7 @@ $(document).ready(function(){
 						}
 
 						else{
-							
+
 							if(status.success == '1'){
 								form.find('[name=name]').val('');
 								form.find('[name=email]').val('');
@@ -387,8 +381,8 @@ $(document).ready(function(){
 								notific.find('.modal-body p').html(status.notification_insert);
 								notific.removeClass('error-notification').addClass('success-notification');
 								notific.modal('show');
-								setTimeout(function(){ 
-									$('#mail-notification').modal('hide'); 
+								setTimeout(function(){
+									$('#mail-notification').modal('hide');
 								}, 3000);
 							}
 
@@ -396,8 +390,8 @@ $(document).ready(function(){
 								form.find('.message-item').addClass('error');
 								form.find('.message-item + .error-title').html(status.notification_insert);
 							};
-							
-							
+
+
 						};
 					}
 				});
@@ -433,7 +427,7 @@ $(document).ready(function(){
 					data    : data,
 					success : function(status){
 						form.find('[type=submit]').removeAttr('disabled').text('Subscribe');
-						var status = $.parseJSON(status);						
+						var status = $.parseJSON(status);
 
 						if(status.error == '1'){
 							form.find('.input-item').addClass('error');
@@ -442,15 +436,15 @@ $(document).ready(function(){
 						}
 
 						if(status.error == ''){
-							$('#subscribeModal').modal('hide'); 
+							$('#subscribeModal').modal('hide');
 							form.find('.input-item').removeClass('error');
 							form.find('input, textarea').val('');
 							notific.find('.modal-body p').html(status.text_insert);
 
 							notific.modal('show');
 
-							setTimeout(function(){ 
-								$('#mail-notification').modal('hide'); 
+							setTimeout(function(){
+								$('#mail-notification').modal('hide');
 							}, 3000);
 
 							return false;
@@ -473,7 +467,7 @@ $(document).ready(function(){
 	End Subscribe Form
 	=============================*/
 
-	
+
 	/*=============================
 	Start Typed
 	=============================*/
@@ -508,7 +502,7 @@ $(document).ready(function(){
 			if(typed[0] && !typedInMobile[0]){
 				$('#typed-element').html(typedInMobile[1]);
 			}
-		}	
+		}
 	};
 	//load
 	/*=============================
@@ -536,7 +530,7 @@ $(document).ready(function(){
 			else{
 				return false;
 			}
-		}	
+		}
 	});
 	/*=============================
 	Start Vegas Slideshow
@@ -570,7 +564,7 @@ $(document).ready(function(){
 
 				return false;
 			}
-		}	
+		}
 	};
 
 	youtube_bg_start();
@@ -609,7 +603,7 @@ $(document).ready(function(){
 					$(window).load(function(){
 
 						var rainyDay = new RainyDay({
-							image: 'el-bg-block' 
+							image: 'el-bg-block'
 						});
 					});
 				}
@@ -625,7 +619,7 @@ $(document).ready(function(){
 				if(canvasAnimation[1] == 'polygon'){
 					polygon();
 				}
-				
+
 				if(canvasAnimation[1] == 'fall-square'){
 					squareFall();
 				}
@@ -639,27 +633,27 @@ $(document).ready(function(){
 				}
 
 				if(canvasAnimation[1] == 'bubbles'){
-					
+
 					particlesJS.load('el-bg-block', '../assets/js/canvas/particles-settings/particles-bubbles.json', function() {});
 				}
 
 				if(canvasAnimation[1] == 'particles-default'){
-					
+
 					particlesJS.load('el-bg-block', '../assets/js/canvas/particles-settings/particles-default.json', function() {});
 				}
 
 				if(canvasAnimation[1] == 'particles-snow'){
-					
+
 					particlesJS.load('el-bg-block', '../assets/js/canvas/particles-settings/particles-snow.json', function() {});
 				}
 
 				if(canvasAnimation[1] == 'particles-brownian-motion'){
-					
+
 					particlesJS.load('el-bg-block', '../assets/js/canvas/particles-settings/particles-brownian-motion.json', function() {});
 				}
 
 				if(canvasAnimation[1] == 'particles-to-up'){
-					
+
 					particlesJS.load('el-bg-block', '../assets/js/canvas/particles-settings/particles-to-up.json', function() {});
 				}
 
@@ -696,12 +690,12 @@ $(document).ready(function(){
 					$(window).load(function(){
 
 						var rainyDay = new RainyDay({
-							image: 'el-bg-block' 
+							image: 'el-bg-block'
 						});
 					});
 				}
 
-				if(canvasAnimation[1] == 'mozaic'){ 
+				if(canvasAnimation[1] == 'mozaic'){
 					mozaic();
 				}
 
@@ -726,27 +720,27 @@ $(document).ready(function(){
 				}
 
 				if(canvasAnimation[1] == 'bubbles'){
-					
+
 					particlesJS.load('el-bg-block', '../assets/js/canvas/particles-settings/particles-bubbles.json', function() {});
 				}
 
 				if(canvasAnimation[1] == 'particles-default'){
-					
+
 					particlesJS.load('el-bg-block', '../assets/js/canvas/particles-settings/particles-default.json', function() {});
 				}
 
 				if(canvasAnimation[1] == 'particles-snow'){
-					
+
 					particlesJS.load('el-bg-block', '../assets/js/canvas/particles-settings/particles-snow.json', function() {});
 				}
 
 				if(canvasAnimation[1] == 'particles-brownian-motion'){
-					
+
 					particlesJS.load('el-bg-block', '../assets/js/canvas/particles-settings/particles-brownian-motion.json', function() {});
 				}
 
 				if(canvasAnimation[1] == 'particles-to-up'){
-					
+
 					particlesJS.load('el-bg-block', '../assets/js/canvas/particles-settings/particles-to-up.json', function() {});
 				}
 
@@ -771,7 +765,3 @@ $(document).ready(function(){
 		typed_text();
 	});
 });
-
-
-
-
